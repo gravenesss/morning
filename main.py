@@ -47,11 +47,19 @@ def get_random_color():
 
 
 client = WeChatClient(app_id, app_secret)
-
-client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 weather, temperature = get_weather()
-data = {"city": {"value": city},
+
+# 获取时间
+now = datetime.now()
+time = now.strftime("%Y-%m-%d %H:%M:%S")
+weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日", ]
+day_Week = datetime.now().weekday()  ### 返回从0开始的数字，比如今天是星期5，那么返回的就是4
+time_week = time + weeks[day_Week]
+# print(time, weeks[day_Week])
+
+data = {"date": {"value": time_week},
+        "city": {"value": city},
         "weather": {"value": weather},
         "temperature": {"value": temperature},
         "love_days": {"value": get_count()},
