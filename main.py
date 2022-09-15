@@ -6,13 +6,14 @@ import requests
 import os
 import random
 
+# 自己的app_id 和 app_secret
+app_id = os.environ["APP_ID"]
+app_secret = os.environ["APP_SECRET"]
+
 today = datetime.now()
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
-
-app_id = os.environ["APP_ID"]
-app_secret = os.environ["APP_SECRET"]
 
 user_id = os.environ["USER_ID"]
 users = user_id.split(",")
@@ -47,15 +48,16 @@ def get_random_color():
 
 client = WeChatClient(app_id, app_secret)
 
+client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
-wea, temperature = get_weather()
-data = {"city":{"value":city},
-        "weather":{"value":wea},
-        "temperature":{"value":temperature},
-        "love_days":{"value":get_count()},
-        "birthday_left":{"value":get_birthday()},
-        "words":{"value":get_words(), "color":get_random_color()}}
-print(user_id)
+weather, temperature = get_weather()
+data = {"city": {"value": city},
+        "weather": {"value": weather},
+        "temperature": {"value": temperature},
+        "love_days": {"value": get_count()},
+        "birthday_left": {"value": get_birthday()},
+        "words": {"value": get_words(), "color": get_random_color()}}
+
 for user in users:
     print(user)
     res = wm.send_template(user, template_id, data)
