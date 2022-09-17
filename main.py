@@ -52,7 +52,7 @@ weather, temperature = get_weather()
 
 # 获取时间
 now = datetime.now()
-time = now.strftime("%Y-%m-%d %H:%M:%S")
+time = now.strftime("%Y-%m-%d") #  %H:%M:%S 相差8个小时，可以自行设置时区
 weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日", ]
 day_Week = datetime.now().weekday()  ### 返回从0开始的数字，比如今天是星期5，那么返回的就是4
 time_week = time + weeks[day_Week]
