@@ -12,6 +12,7 @@ from wechatpy.client.api import WeChatMessage
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
+os.environ["WORK_START"] = "2022-7-15"
 work_start = os.environ['WORK_START']
 school_start = os.environ['SCHOOL_START']
 start_date = os.environ['START_DATE']
