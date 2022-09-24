@@ -30,6 +30,6 @@ jobs:
       START_DATE: ${{ secrets.START_DATE }}
       BIRTHDAY: ${{ secrets.BIRTHDAY }}
       CITY: ${{ secrets.CITY }}
-      WORK_START: ${{secrets.secrets}}
+      WORK_START: ${{secrets.WORK_START}}
       SCHOOL_START: ${{secrets.SCHOOL_START}}
       NEXT_MEET_DAY: ${{secrets.NEXT_MEET_DAY}}
