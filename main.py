@@ -7,25 +7,26 @@ import requests
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage
 
+
 # 自己的app_id 和 app_secret
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
-work_start = os.environ["WORK_START"] 
-school_start = os.environ["SCHOOL_START"]
+work_start = os.environ['WORK_START']
+school_start = os.environ['SCHOOL_START']
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
 next_meet_day = os.environ['NEXT_MEET_DAY']
 
-user_id = os.environ["USER_ID"]
 template_id = os.environ["TEMPLATE_ID"]
+user_id = os.environ["USER_ID"]
 users = user_id.split(",")
 
 
 # 所在地天气
 def get_weather():
-    url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
+    url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city="+city
     res = requests.get(url).json()
     weather = res['data']['list'][0]
     return weather['weather'], math.floor(weather['temp'])
