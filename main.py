@@ -58,10 +58,11 @@ wm = WeChatMessage(client)
 weather, temperature = get_weather()
 # 获取当前时间，日期和周几
 now = datetime.now()
-time = now.strftime("%Y-%m-%d %H:%M:%S")
+# 加8后的时间
+current_time = (now + timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S ')
 weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日", ]
 day_Week = datetime.now().weekday()  # 返回从0开始的数字，比如今天是星期5，那么返回的就是4
-time_week = time + weeks[day_Week]
+time_week = current_time + weeks[day_Week]
 # print(time, weeks[day_Week])
 
 work_start_time = datetime.strptime(work_start, "%Y-%m-%d")
